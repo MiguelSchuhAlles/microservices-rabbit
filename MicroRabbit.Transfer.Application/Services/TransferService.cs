@@ -21,5 +21,10 @@ namespace MicroRabbit.Transfer.Application.Services
         {
             return _transferRepository.GetTransferLogs();
         }
+
+        public IEnumerable<decimal> GetTransferAmounts()
+        {
+            return _transferRepository.GetTransferAmounts();
+        }
     }
 }

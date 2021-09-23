@@ -1,7 +1,9 @@
 ﻿using MicroRabbit.Transfer.Data.Context;
 using MicroRabbit.Transfer.Domain.Interfaces;
 using MicroRabbit.Transfer.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MicroRabbit.Transfer.Data.Repository
 {
@@ -22,7 +24,12 @@ namespace MicroRabbit.Transfer.Data.Repository
 
         public IEnumerable<TransferLog> GetTransferLogs()
         {
-            return _ctx.TransferLogs;
+            return _ctx.TransferLogs.AsNoTracking();
+        }
+
+        public IEnumerable<decimal> GetTransferAmounts()
+        {
+            return _ctx.TransferLogs.Select(t => t.TransferAmount);
         }
     }
 }

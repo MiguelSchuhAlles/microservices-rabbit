@@ -25,5 +25,11 @@ namespace MicroRabbit.Transfer.Api.Controllers
         {
             return Ok(_transferService.GetTransferLogs());
         }
+
+        [HttpGet("amounts")]
+        public ActionResult<IEnumerable<decimal>> GetAmounts()
+        {
+            return Ok(_transferService.GetTransferAmounts());
+        }
     }
 }

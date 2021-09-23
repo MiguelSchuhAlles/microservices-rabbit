@@ -7,5 +7,6 @@ namespace MicroRabbit.Transfer.Domain.Interfaces
     {
         void Add(TransferLog transferLog);
         IEnumerable<TransferLog> GetTransferLogs();
+        IEnumerable<decimal> GetTransferAmounts();
     }
 }
